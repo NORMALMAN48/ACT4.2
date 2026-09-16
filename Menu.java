@@ -2,13 +2,13 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-// clase que controla todo el menu de la aplicacion
+// clase que controla todo el menu
 public class Menu {
 
     private static final BinaryTree<Integer> intTree = new BinaryTree<>();
     private static final BinaryTree<Employee> employeeTree = new BinaryTree<>();
 
-    // el nombre del archivo esta fijo, no hace falta que el usuario lo escriba
+
     private static final String EMPLOYEE_FILE = "empleados.txt";
 
     public static void start() {
@@ -36,8 +36,6 @@ public class Menu {
 
         sc.close();
     }
-
-    // ---------------- integer tree ----------------
 
     private static void intTreeMenu(Scanner sc) {
         int choice;
@@ -83,7 +81,7 @@ public class Menu {
         } while (choice != 0);
     }
 
-    // ---------------- employee tree ----------------
+
 
     private static void employeeTreeMenu(Scanner sc) {
         int choice;
@@ -136,8 +134,7 @@ public class Menu {
     }
 
     // pide id, nombre y rol por separado y mete el empleado nuevo al arbol.
-    // a diferencia de la carga desde archivo, aqui SI se avisa si el id ya existe,
-    // porque es una insercion individual y el usuario necesita saber que paso
+
     private static void insertEmployeeInteractively(Scanner sc) {
         int id = readInt(sc, "Employee id: ");
         Employee key = Employee.withId(id);
@@ -157,8 +154,7 @@ public class Menu {
         System.out.println("Employee " + id + " was added.");
     }
 
-    // lee el archivo de empleados (cada linea "id,name,role") y mete cada empleado al
-    // arbol. si una linea esta mal, nomas se ignora y se sigue con las demas
+    // lee el archivo de empleados (cada linea "id,name,role") y mete cada empleado
     private static void loadEmployeesFromFile() {
         File file = new File(EMPLOYEE_FILE);
         Scanner reader;
@@ -198,7 +194,7 @@ public class Menu {
         System.out.println("Loaded " + loaded + " employees from the file.");
     }
 
-    // sirve para los dos arboles (enteros y empleados), imprime los 3 recorridos
+    // sirve para los dos arboles 
     private static <T extends Comparable<T>> void showTraversals(BinaryTree<T> tree) {
         System.out.println("---- preorder ----");
         tree.preorder();
