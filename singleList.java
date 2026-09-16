@@ -1,4 +1,4 @@
-// lista ligada simple, solo va para adelante (no tiene puntero al anterior)
+// lista ligada simple
 public class singleList<T> {
     private Node<T> head;
     private int size;
@@ -8,7 +8,7 @@ public class singleList<T> {
         head = null;
     }
 
-    // agrega al final, hay que recorrer toda la lista para llegar ahi
+
     public void add(T data) {
         Node<T> newNode = new Node<>(data);
         if (head == null) {
@@ -24,7 +24,7 @@ public class singleList<T> {
         size++;
     }
 
-    // agrega en cualquier posicion, si es 0 nomas cambia el head
+
     public void addAt(int index, T data) {
         if (index < 0 || index > size) {
             System.out.println("Index out of bounds");
@@ -47,7 +47,7 @@ public class singleList<T> {
         size++;
     }
 
-    // quita el primero, nomas mover el head un lugar
+
     public void removeFirst() {
         if (head == null) {
             return;
@@ -56,7 +56,7 @@ public class singleList<T> {
         size--;
     }
 
-    // quita el ultimo, toca recorrer hasta el penultimo
+
     public void removeLast() {
         if (head == null) {
             return;
@@ -108,7 +108,7 @@ public class singleList<T> {
         size = 0;
     }
 
-    // arma un string con todo el contenido, sin espacios ni comas
+    // arma un string con todo el contenido
     public String showContent() {
         if (head == null) {
             return "Empty list";
